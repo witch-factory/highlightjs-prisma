@@ -1,10 +1,10 @@
 <span class="hljs-keyword">generator</span> <span class="hljs-title class_">client</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-variable">provider</span> <span class="hljs-operator">=</span> <span class="hljs-string">"prisma-client-js"</span>
+ <span class="hljs-variable"> provider</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;prisma-client-js&quot;</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-keyword">datasource</span> <span class="hljs-title class_">db</span> <span class="hljs-punctuation">{</span>
-  <span class="hljs-variable">provider</span> <span class="hljs-operator">=</span> <span class="hljs-string">"mysql"</span>
-  <span class="hljs-variable">url</span>      <span class="hljs-operator">=</span> <span class="hljs-title function_">env</span><span class="hljs-punctuation">(</span><span class="hljs-string">"DATABASE_URL"</span><span class="hljs-punctuation">)</span>
+ <span class="hljs-variable"> provider</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;mysql&quot;</span>
+ <span class="hljs-variable"> url</span>      <span class="hljs-operator">=</span> <span class="hljs-title function_">env</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;DATABASE_URL&quot;</span><span class="hljs-punctuation">)</span>
 <span class="hljs-punctuation">}</span>
 
 <span class="hljs-keyword">model</span> <span class="hljs-title class_">User</span> <span class="hljs-punctuation">{</span>
