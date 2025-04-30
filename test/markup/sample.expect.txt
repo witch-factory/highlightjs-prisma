@@ -1,0 +1,27 @@
+<span class="hljs-keyword">generator</span> <span class="hljs-title class_">client</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-variable">provider</span> <span class="hljs-operator">=</span> <span class="hljs-string">"prisma-client-js"</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">datasource</span> <span class="hljs-title class_">db</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-variable">provider</span> <span class="hljs-operator">=</span> <span class="hljs-string">"mysql"</span>
+  <span class="hljs-variable">url</span>      <span class="hljs-operator">=</span> <span class="hljs-title function_">env</span><span class="hljs-punctuation">(</span><span class="hljs-string">"DATABASE_URL"</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">model</span> <span class="hljs-title class_">User</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-title">id</span>        <span class="hljs-type">Int</span>      <span class="hljs-attr">@id</span> <span class="hljs-attribute">@default</span><span class="hljs-punctuation">(</span><span class="hljs-title function_">autoincrement</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-title">username</span>  <span class="hljs-type">String</span>   <span class="hljs-attr">@unique</span>
+  <span class="hljs-title">password</span>  <span class="hljs-type">String</span>
+  <span class="hljs-title">todos</span>     <span class="hljs-type">Todo</span><span class="hljs-operator">[]</span>   <span class="hljs-comment">// 1:N relationship - one user can have multiple todos</span>
+  <span class="hljs-title">createdAt</span> <span class="hljs-type">DateTime</span> <span class="hljs-attribute">@default</span><span class="hljs-punctuation">(</span><span class="hljs-title function_">now</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-title">updatedAt</span> <span class="hljs-type">DateTime</span> <span class="hljs-attr">@updatedAt</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-keyword">model</span> <span class="hljs-title class_">Todo</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-title">id</span>        <span class="hljs-type">Int</span>      <span class="hljs-attr">@id</span> <span class="hljs-attribute">@default</span><span class="hljs-punctuation">(</span><span class="hljs-title function_">autoincrement</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-title">title</span>     <span class="hljs-type">String</span>
+  <span class="hljs-title">completed</span> <span class="hljs-type">Boolean</span>  <span class="hljs-attribute">@default</span><span class="hljs-punctuation">(</span>false<span class="hljs-punctuation">)</span> <span class="hljs-comment">// default value is not completed</span>
+  <span class="hljs-title">userId</span>    <span class="hljs-type">Int</span>      <span class="hljs-comment">// foreign key representing relationship with User</span>
+  <span class="hljs-title">user</span>      <span class="hljs-type">User</span>     <span class="hljs-attribute">@relation</span><span class="hljs-punctuation">(</span><span class="hljs-symbol">fields: </span><span class="hljs-punctuation">[</span>userId<span class="hljs-punctuation">]</span>, <span class="hljs-symbol">references: </span><span class="hljs-punctuation">[</span>id<span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-title">createdAt</span> <span class="hljs-type">DateTime</span> <span class="hljs-attribute">@default</span><span class="hljs-punctuation">(</span><span class="hljs-title function_">now</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-title">updatedAt</span> <span class="hljs-type">DateTime</span> <span class="hljs-attr">@updatedAt</span>
+<span class="hljs-punctuation">}</span>

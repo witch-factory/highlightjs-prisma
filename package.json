@@ -1,0 +1,26 @@
+{
+  "name": "highlightjs-prisma",
+  "version": "0.1.0",
+  "description": "highlight.js syntax definition for Prisma schema files",
+  "main": "src/languages/prisma.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/witch-factory/highlightjs-prisma.git"
+  },
+  "keywords": [
+    "prisma",
+    "highlight.js",
+    "highlightjs",
+    "hljs",
+    "syntax"
+  ],
+  "author": "SungHyun Kim <soakdma37@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/witch-factory/highlightjs-prisma/issues"
+  },
+  "homepage": "https://github.com/witch-factory/highlightjs-prisma"
+}
